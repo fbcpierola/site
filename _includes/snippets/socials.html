@@ -1,0 +1,17 @@
+{% assign page_socials = "youtube,instagram,facebook,twitter,tiktok,snapchat,discord,twitch,mixer,hover,spotify,reddit,apple_podcasts" | split: "," %}
+
+{% for social in site.social_networks %}
+{% comment %} TODO: Add a conditional check to make sure the snippet exists once backend is updated. {% endcomment %}
+  {% if page_socials contains social.name %}
+    <li class="{{ include.li_class }}">
+      <a
+        href="{{ social.public_url }}"
+        target="_blank"
+        class="{{ include.a_class }}"
+      >
+        {% assign icon_file = "snippets/icon-" | append: social.name | append: ".svg" %}
+        {% include {{ icon_file }} %}
+      </a>
+    </li>
+  {% endif %}
+{% endfor %}

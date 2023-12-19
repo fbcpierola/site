@@ -1,0 +1,41 @@
+<section data-section-id="{{ section.id }}" class="sponsors">
+  <div class="container container--12 wrapper">
+    <div class="sponsors__content">
+      <div class="sponsors__header">
+        <div class="section-header">
+          <h2 class="section-header__heading">Auspiciadores</h2>
+        </div>
+      </div>
+
+      <div class="sponsors__grid">
+        <div class="grid grid--center grid--gapless grid--middle grid--small grid--waffle">
+          <div class="grid__column grid__column--flex grid__column--center grid__column--6 grid__column--3@md">
+            <img src="{{ 'famesol.png' | asset_url }}"/>
+          </div>
+          <div class="grid__column grid__column--flex grid__column--center grid__column--6 grid__column--3@md">
+            <img src="{{ 'claro.png' | asset_url }}"/>
+          </div>
+          <div class="grid__column grid__column--flex grid__column--center grid__column--6 grid__column--3@md">
+            <img src="{{ 'famesol.png' | asset_url }}"/>
+          </div>
+          <div class="grid__column grid__column--flex grid__column--center grid__column--6 grid__column--3@md">
+            <img src="{{ 'claro.png' | asset_url }}"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Sponsors",
+    "settings": [],
+    "presets": [
+      {
+        "category": "Content",
+        "name": "Sponsors"
+      }
+    ]
+  }
+{% endschema %}

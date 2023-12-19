@@ -1,0 +1,63 @@
+<div class="newsletter-form">
+  <div class="form" data-newsletter="form-container">
+  {% form 'customer' %}
+    <div class="form__section">
+      <div class="newsletter-form__input-button-container">
+        <div class="newsletter-form__input">
+          <div data-input="container" class="input-field input-field--base">
+            <input
+              id="newsletter-email"
+              name="contact[email]"
+              type="email"
+              data-newsletter="email"
+              data-input="input"
+              class="input-field__input"
+              placeholder="{% if request.page_type == 'password' %} {{ placeholder }} {% else %} example@example.com {% endif %}"
+              required
+            >
+          </div>
+
+          <div data-form-error="email" class="form__error"></div>
+        </div>
+
+        <div class="newsletter-form__button">
+          <button
+            type="submit"
+            data-newsletter="submit"
+            class="button button--primary button--expand"
+          >
+            {% if request.page_type == 'password' %} {{ label }} {% else %} Subscribe {% endif %}
+            <span class="button__spinner">
+              <div class="spinner spinner--small"></div>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form__response-container">
+      <div
+        data-form="response-success" 
+        class="form__response"
+      >
+        <div class="alert alert--success">
+          Thanks for subscribing!
+        </div>
+      </div>
+
+      <div 
+        data-form="response-error"
+        class="form__response"
+      >
+        <div class="alert alert--error">
+          <ul 
+            data-form="response-error-content"
+            class="alert__list"
+          >
+          </ul>
+        </div>
+      </div>
+    </div>
+  {% endform %}
+  </div>
+</div>

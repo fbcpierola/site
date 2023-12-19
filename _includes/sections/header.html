@@ -1,0 +1,107 @@
+<div class="header">
+  <div class="container wrapper">
+    <div class="header__sections">
+      <div class="header__section header__section--hamburger hidden@sm">
+        <button data-drawer-trigger-primary="mobile-menu" class="header__icon header__icon--hamburger">
+          {% include snippets/icon-hamburger.svg %}
+        </button>
+      </div>
+
+      <div class="header__section header__section--left visible@sm">
+        <div class="header__social visible@sm">
+          <ul class="header__list header__list--socials">
+            {% include snippets/socials.html li_class="header__list-item" a_class="header__icon" badge_class="header__social-badge" %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="header__section header__section--middle">
+        {% if request.page_type == 'index' %}
+          <h1 class="header__logo">
+        {% else %}
+          <div class="header__logo">
+        {% endif %}
+
+        <a href="/" class="header__logo-link">
+          {% include snippets/logo.html class="header__logo-image" logo="/assets/fbcpierola.svg" %}
+        </a>
+
+        {% if request.page_type == 'index' %}
+          </h1>
+        {% else %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="header__section header__section--right">
+        <nav class="header__nav visible@sm">
+          <ul class="header__list header__list--nav">
+            {% for link in site.linklists %}
+              <li class="header__list-item">
+                <a
+                  href="{{ link.url | localized_url }}"
+                  class="header__link{% if link.links != blank %} header__link--icon{% endif %}"
+                >
+                  {{ link.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+
+        <ul class="header__list">
+          {% if include.show_currency_selector == true and shop.enabled_currencies.size > 1 %}
+            <li class="header__list-item visible@sm">
+              <a class="header__link header__link--icon">
+                 {{ cart_currency }}
+
+                {% if shop.enabled_currencies != blank %}
+                  <span class="header__link-icon">
+                    {% include snippets/icon-chevron-bottom.svg %}
+                  </span>
+                {% endif %}
+              </a>
+
+              {% if shop.enabled_currencies != blank %}
+                <div class="header__dropdown header__dropdown--content">
+                  <ul class="header__dropdown-inner">
+                    {% for currency in shop.enabled_currencies %}
+                      <li class="header__dropdown-item">
+                        <a class="header__dropdown-link" href="/localization?currency={{ currency }}&return_to={{ request_page }}">
+                          {{ currency }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+            </li>
+          {% endif %}
+
+          {% if shop.metafields.memberships.enabled and membership_tiers.size > 0 %}
+            <li class="header__list-item visible@sm">
+              <a href="/supporters" class="header__icon header__icon--account">
+                {% include snippets/icon-account.svg %}
+              </a>
+            </li>
+          {% endif %}
+
+          {% if include.show_button == true %}
+            <li class="header__list-item visible@sm">
+              <div class="header__cta">
+                <a
+                  href="{{ include.button_url | localized_url }}"
+                  class="button button--primary button--small"
+                >
+                  {{ include.button_text }}
+                </a>
+              </div>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include snippets/mobile-menu.html %}

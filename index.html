@@ -1,0 +1,65 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: theme
+---
+
+<div data-testid="main.sections" class="main__sections">
+  {% include sections/hero.html
+    background_clip="none"
+    background_overlay_opacity=80
+    background_blend_mode="hard-light"
+    style="1-image"
+    move_top="yes"
+    background_image="/assets/soccer-field.jpg"
+    show_background_overlay=true
+    background_overlay_color="#E30644"
+    image1="/assets/captain.png"
+    image2=""
+    image3=""
+    heading_size="large"
+    heading_color="#ffffff"
+    heading="<strong>FBC</strong> Piérola"
+    text=site.description
+    text_color="#ffffff"
+    show_button1=true
+    show_button2=false
+    button1_url="/club"
+    button1_text="El club"
+    button2_url=""
+    button2_text=""
+    show_cutting=true
+  %}
+
+  {% include sections/image.html image=site.cover %}
+
+  {% include sections/social-feed.html image_size="xl" add_spacing=true %}
+
+
+  {% include sections/hero.html
+    background_clip="none"
+    background_overlay_opacity=80
+    background_blend_mode="hard-light"
+    style="2-images"
+    move_top="no"
+    background_image=""
+    show_background_overlay=false
+    background_overlay_color="#E30644"
+    image1="/assets/old_photo_1.png"
+    image2="/assets/old_photo_2.png"
+    image3=""
+    heading_size="large"
+    heading_color="#ffffff"
+    heading="<strong>Viva el Piérola</strong> <strong>y sus mujeres</strong> <span>Carajo!!!</span>"
+    text="Foot Ball Club Piérola es un club de fútbol del Perú, de la ciudad de Arequipa en el Departamento de Arequipa. Fue fundado el 7 de mayo de 1922 y participa en la Copa Perú."
+    text_color="#ffffff"
+    show_button1=false
+    show_button2=false
+    button1_url=""
+    button1_text=""
+    button2_url=""
+    button2_text=""
+    show_cutting=false
+  %}
+</div>

@@ -1,0 +1,51 @@
+<!-- ie info bar -->
+<div class="browser-ie11" style="display: none">
+  Your current browser is not supported. Please
+  <a href="https://browsehappy.com/" target="_blank" rel="nofollow" nofollow
+    >upgrade to a newer one</a
+  >
+  to improve your experience with this site
+</div>
+
+<!-- ie 11 polyfills -->
+<!-- TODO: Move to external JS file -->
+<script type="text/javascript">
+  if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+    document.write(
+      '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
+    );
+    document.write(
+      '<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.6.9/core.min.js"><\/script>'
+    );
+    document.write(
+      '<script src="https://cdn.polyfill.io/v2/polyfill.min.js"><\/script>'
+    );
+
+    // show info bar
+    document.querySelector(".browser-ie11").style.display = "block";
+
+    // createEvent polyfill
+    (function() {
+      if (typeof window.CustomEvent === "function") return false;
+
+      function CustomEvent(event, params) {
+        params = params || {
+          bubbles: false,
+          cancelable: false,
+          detail: undefined
+        };
+        var evt = document.createEvent("CustomEvent");
+        evt.initCustomEvent(
+          event,
+          params.bubbles,
+          params.cancelable,
+          params.detail
+        );
+        return evt;
+      }
+
+      CustomEvent.prototype = window.Event.prototype;
+      window.CustomEvent = CustomEvent;
+    })();
+  }
+</script>

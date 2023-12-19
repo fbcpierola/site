@@ -1,0 +1,32 @@
+<div data-testid="news" class="news-tile">
+  <a href="{{ include.url }}" target="_blank" rel="noopener noreferrer nofollow" class="tile tile--over">
+    <div class="tile__image">
+      <div class="image image--background-color">
+        <div class="image__object image__object--cover">
+          {% if include.image %}
+            <img
+              src="{{ include.image | prepend: site.baseurl }}"
+              alt="{{ include.title }}"
+            >
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="tile__description">
+      <div class="badge">
+        {{ include.provider }}
+      </div>
+      <h3 class="tile__heading">
+        {% if include.title.size > 250 %}
+          {{ include.title | slice: 0, 250 | append: "..." }}
+        {% else %}
+          {{ include.title }}
+        {% endif %}
+      </h3>
+      <div class="tile__date">
+        {{ include.date | date: '%d %b %Y' }}
+      </div>
+    </div>
+  </a>
+</div>

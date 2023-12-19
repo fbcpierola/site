@@ -1,0 +1,124 @@
+{%- assign background_class = '' -%}
+
+{% if include.background_clip != 'none' %}
+  {%- assign background_class = background_class | append: ' section-background--clip-square-' | append: include.background_clip -%}
+{% endif %}
+
+{%- capture background_overlay_opacity -%}
+  opacity:{{ include.background_overlay_opacity | divided_by: 100.00 }};
+{%- endcapture -%}
+
+{%- capture background_image_blend_mode -%}
+  mix-blend-mode:{{ include.background_blend_mode }};
+{%- endcapture -%}
+
+<section data-section-id="{{ section.id }}" class="hero hero--{{ section.id }} hero--style-{{ include.style }}{% if include.move_top == 'yes' %} hero--move-top{% endif %}">
+  <div class="container container--outer">
+    <div class="hero__container">
+      <div class="section-background{{ background_class }}">
+        {% if include.background_image != blank %}
+          <div
+            class="section-background__image"
+            style="background-image: url({{ include.background_image | prepend: site.baseurl }});{{ background_image_blend_mode }}"
+          ></div>
+        {% endif %}
+
+        {% if include.show_background_overlay == true %}
+          <div
+            class="section-background__overlay"
+            style="background: linear-gradient(to bottom, {{ include.background_overlay_color }}9e 30%, #FFFFFF00 80%);"
+          ></div>
+        {% endif %}
+      </div>
+
+      <div class="container container--12 wrapper">
+        <div class="hero__inner">
+          <div class="container container--10">
+            {% unless include.style == 'no-images' %}
+              <div class="hero__images">
+                {% if include.image1 != blank %}
+                <div
+                  class="hero__image hero__image--1"
+                  style="background-image:url({{ include.image1 | prepend: site.baseurl }});"
+                >
+                </div>
+                {% endif %}
+
+                {% if include.image2 != blank %}
+                <div
+                  class="hero__image hero__image--2"
+                  style="background-image:url({{ include.image2 | prepend: site.baseurl }});"
+                >
+                </div>
+                {% endif %}
+
+                {% if include.image3 != blank %}
+                <div 
+                  class="hero__image hero__image--3"
+                  style="background-image:url({{ include.image3 | prepend: site.baseurl }});"
+                >
+                </div>
+                {% endif %}
+              </div>
+            {% endunless %}
+
+            <div class="hero__content">
+              <h1 
+                class="hero__heading hero__heading--{{ include.heading_size }}"
+                style="color:{{ include.heading_color }};"
+              >
+                {{ include.heading }}
+              </h1>
+
+              {% if include.text != blank %}
+                <p
+                  class="hero__text"
+                  style="color:{{ include.text_color }};"
+                >
+                  {{ include.text }}
+                </p>
+              {% endif %}
+
+              {% if include.show_button1 == true or include.show_button2 == true %}
+              <div class="hero__cta-container">
+                {% if include.show_button1 == true %}
+                  <div class="hero__cta hero__cta--primary">
+                    <a
+                      href="{{ include.button1_url }}"
+                      class="button button--corners button--large"
+                    >
+                      {{ include.button1_text }}
+                    </a>
+                  </div>
+                {% endif %}
+
+                {% if include.show_button2 == true %}
+                  <div class="hero__cta hero__cta--secondary">
+                    <a
+                      href="{{ include.button2_url }}"
+                      class="button button--outline button--large"
+                    >
+                      {{ include.button2_text }}
+                    </a>
+                  </div>
+                {% endif %}
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% if include.show_cutting == true %}
+        <div class="hero__cutting">
+          {% include snippets/image-cutting.svg %}
+        </div>
+      {% endif %}
+
+      <div class="hero__plus">
+        {% include snippets/image-plus.svg %}
+        {% include snippets/image-plus.svg %}
+      </div>
+    </div>
+  </div>
+</section>

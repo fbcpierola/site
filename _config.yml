@@ -1,0 +1,41 @@
+title: FBC Piérola
+email: info@fbcpierola.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+
+domain: fbcpierola.github
+url: https://fbcpierola.com
+baseurl: ""
+
+# Build settings
+theme: null
+plugins:
+  - jekyll-feed
+
+social_networks:
+  - name: youtube
+    public_url: https://www.youtube.com/@fbcpierola
+  - name: instagram
+    public_url: https://www.instagram.com/fbcpierola
+  - name: facebook
+    public_url: https://www.facebook.com/fbcpierola
+  - name: tiktok
+    public_url: https://www.tiktok.com/@fbcpierola
+
+linklists:
+  - url: /club
+    title: "EL CLUB"
+
+exclude:
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - package.json
+  - package-lock.json
+  - webpack.config.js
+  - styles
+  - scripts

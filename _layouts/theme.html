@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="{{ site.description }}" name="description" />
+
+    {%- if page.title -%}
+      <title>{{ page.title }} | {{ site.title | default: site.github.repository_name }}</title>
+    {%- else -%}
+      <title>{{ site.title | default: site.github.repository_name }}</title>
+    {%- endif -%}
+
+    {% include snippets/head-favicons.html %}
+    {% include snippets/css-variables.html %}
+    <link rel="stylesheet" href="{{ "/assets/style_theme.css" | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ "/assets/style_vendor.css" | prepend: site.baseurl }}">
+  </head>
+
+  <body class="body">
+    {% include snippets/ie-support.html %}
+
+    <div class="page">
+      <header class="page__header">
+        {% include sections/header.html navigation="main" %}
+      </header>
+
+      <div class="page__main">
+        <div class="main">
+          {{ content }}
+        </div>
+      </div>
+
+      <footer class="page__footer">
+        {% include sections/footer.html social_networks=page.social_networks navigation="footer" show_powered_by=false %}
+      </footer>
+    </div>
+
+    {% include snippets/theme-js-data.html %}
+    <script src="{{ "/assets/script_theme.js" | prepend: site.baseurl }}"></script>
+  </body>
+</html>

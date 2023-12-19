@@ -1,0 +1,18 @@
+{% if include.logo != blank %}
+  {%- capture logo_image_size -%}{{ include.logo_width | escape }}x{%- endcapture -%}
+
+  {% if include.class == blank %}
+    {% assign include.class = "logo-image" %}
+  {% endif %}
+
+  <img
+    src="{{ include.logo | asset_url }}"
+    alt="{{ site.title }}"
+    class="{{ include.class }}"
+    itemprop="logo"
+  >
+{% else %}
+  <span class="text-logo">
+    {{ site.title }}
+  </span>
+{% endif %}

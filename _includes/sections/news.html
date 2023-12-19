@@ -1,0 +1,60 @@
+<section data-section-id="{{ section.id }}" class="news">
+  <div class="container container--outer">
+    <div class="news__container">
+      <div class="news__header">
+        <div class="news__title news__title--style-1">
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+        </div>
+        <div class="news__title news__title--style-2">
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+          <span>NOTICIAS</span>
+        </div>
+      </div>
+
+      <div class="news__content">
+        <div class="news__grid">
+          <div class="grid grid--gapless">
+            {% for news in site.data.news limit: 10 %}
+              {%- if news.is_published and news.full_picture != "" -%}
+                <div class="grid__column grid__column--12 grid__column--6@md">
+                  {% include snippets/news-tile.html
+                    url=news.permalink_url
+                    provider=news.from.name
+                    image=news.full_picture
+                    title=news.message
+                    date=news.created_time
+                  %}
+                </div>
+              {%- endif -%}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

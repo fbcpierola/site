@@ -1,0 +1,36 @@
+<aside 
+  data-drawer="mobile-menu" 
+  class="drawer hidden@sm"
+>
+  <div class="drawer__background" data-drawer-trigger-primary="mobile-menu"></div>
+  <div class="drawer__content drawer__content--small mobile-menu">
+    <div class="mobile-menu__section mobile-menu__section--header">
+      <a href="#" class="mobile-menu__close" data-drawer-trigger-primary="mobile-menu">
+        {% include snippets/icon-close.svg %}
+      </a>
+    </div>
+    <div class="mobile-menu__section mobile-menu__section--body">
+      <div class="mobile-menu__nav">
+        <ul class="mobile-menu__list">
+          {% for link in site.linklists %}
+            <li class="mobile-menu__list-item">
+              <a
+                href="{{ link.url | localized_url }}"
+                class="mobile-menu__link"
+              >
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="mobile-menu__section mobile-menu__section--socials">
+      <div class="mobile-menu__list-social">
+        <ul class="mobile-menu__socials">
+          {% include snippets/socials.html li_class='mobile-menu__social' a_class='mobile-menu__social-link' badge_class='mobile-menu__social-badge' %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</aside>

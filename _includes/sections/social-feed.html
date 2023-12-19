@@ -1,0 +1,75 @@
+{% assign grid_column_class = "" %}
+
+{% case include.image_size %}
+  {% when "small" %}
+    {% assign grid_column_class = " social-feed__small-column" %}
+  {% when "regular" %}
+    {% assign grid_column_class = " grid__column--2@md" %}
+  {% when "large" %}
+    {% assign grid_column_class = " grid__column--3@md" %}
+  {% when "xl" %}
+    {% assign grid_column_class = " grid__column--4@md" %}
+{% endcase %}
+
+<section class="social-feed">
+  <div class="social-feed__container">
+    <div class="social-feed__header">
+      <div class="social-feed__title social-feed__title--style-1">
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+      </div>
+      <div class="social-feed__title social-feed__title--style-2">
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+        <span>NOTICIAS</span>
+      </div>
+    </div>
+
+    <div class="container wrapper">
+      <div class="social-feed__grid">
+        <div class="grid grid--waffle{% unless include.add_spacing %} grid--gapless{% endunless %}">
+          {% for news in site.data.news limit: 12 %}
+            {%- if news.is_published and news.full_picture != "" -%}
+              <div class="grid__column grid__column--4{{ grid_column_class }}">
+                <a
+                  href="{{ news.permalink_url }}"
+                  target="_blank"
+                  class="social-feed__post"
+                >
+                  <img
+                    src="{{ news.full_picture }}"
+                    alt="{{ news.message }}"
+                    class="social-feed__image"
+                  />
+                </a>
+              </div>
+            {%- endif -%}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

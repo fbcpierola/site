@@ -1,0 +1,52 @@
+<div class="footer {% if request.page_type == 'product' or request.page_type == 'cart' %} footer--background {% endif %}">
+  <div class="container wrapper">
+
+    <div class="footer__follow">
+      <h5 class="footer__heading">
+        {{ include.heading | default: 'Síguenos' }}
+      </h5>
+
+      <div class="footer__socials">
+        <ul class="footer__list footer__list--socials">
+          {% include snippets/socials.html social_networks=include.social_networks li_class="footer__list-item footer__list-item--social" a_class="footer__social-link" %}
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer__inner wrapper">
+
+    <div class="footer__section">
+
+      <nav class="footer__section--left">
+        <ul class="footer__list footer__list--menu">
+          {% for link in site.data.linklists[include.navigation] %}
+            <li class="footer__list-item">
+              <a href="{{ link.url | localized_url }}" class="footer__menu-link">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <nav class="footer__section--right">
+        <ul class="footer__list footer__list--menu">
+
+          <li class="footer__list-item">
+            <span class="footer__copy">&copy; {{ 'now' | date: '%Y' }}</span>
+            {% if include.copyright != blank %}
+              <span class="footer__copy footer__copy--additional">
+                {{ include.copyright }}
+              </span>
+            {% endif %}
+            | Derechos reservados
+          </li>
+
+        </ul>
+      </nav>
+
+    </div>
+
+  </div>
+
+</div>

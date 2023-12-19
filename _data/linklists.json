@@ -1,0 +1,14 @@
+{
+  "main": [
+    {
+      "url": "/club",
+      "title": "El club"
+    }
+  ],
+  "footer": [
+    {
+      "url": "/club",
+      "title": "El club"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+<style>
+  {%- comment -%}
+  {% assign font_base = settings.type_base_font %}
+  {% assign font_base_bold = font_base | font_modify: 'weight', 'bolder' %}
+  {% assign font_heading = settings.type_heading_font %}
+
+  {{ font_base | font_face }}
+  {{ font_base_bold | font_face }}
+  {{ font_heading | font_face }}
+  {%- endcomment -%}
+
+  :root {
+    --color-primary: #E30644;
+    --color-on-primary: #FFFFFF;
+    --color-background: #191919;
+    --color-on-background: #FFFFFF;
+    --color-highlight: #1B2064;
+    --color-on-highlight: #FFFFFF;
+
+    --color-primary-rgb: 227, 6, 68;
+    --color-on-primary-rgb: 255, 255, 255;
+    --color-background-rgb: 25, 25, 25;
+    --color-on-background-rgb: 255, 255, 255;
+    --color-highlight-rgb: 27, 32, 100;
+    --color-on-highlight-rgb: 255, 255, 255;
+
+    --color-background-brightness: {{ settings.color_background | brightness_difference: '#000000' }};
+
+    --button-corner-radius: 100px;
+    --input-corner-radius: 8px;
+    --image-corner-radius: 0px;
+
+    --font-family-base: "Heebo", sans-serif;
+    --font-family-heading: "BT Brik Regular", sans-serif;
+
+    --font-weight-base: normal;
+    --font-weight-base-bold: bold;
+    --font-weight-heading: normal;
+
+    --text-transform-base: normal;
+    --text-transform-heading: normal;
+
+    --font-style-base: normal;
+    --font-style-heading: normal;
+
+    --logo-max-width: 150px;
+  }
+</style>
