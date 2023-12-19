@@ -1,41 +1,37 @@
-title: FBC Piérola
-email: info@fbcpierola.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-
-domain: fbcpierola.github
-url: https://fbcpierola.com
+address: Calle Pizarro 527, 04001 Arequipa, Peru
 baseurl: ""
-
-# Build settings
-theme: null
-plugins:
-  - jekyll-feed
-
-social_networks:
-  - name: youtube
-    public_url: https://www.youtube.com/@fbcpierola
-  - name: instagram
-    public_url: https://www.instagram.com/fbcpierola
-  - name: facebook
-    public_url: https://www.facebook.com/fbcpierola
-  - name: tiktok
-    public_url: https://www.tiktok.com/@fbcpierola
-
-linklists:
-  - url: /club
-    title: "EL CLUB"
-
+category: Equipo deportivo
+cover: https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-6/411230227_333602889618808_1838829481500997147_n.png?_nc_cat=106&ccb=1-7&_nc_sid=22a186&_nc_ohc=83CKsV_7D8oAX9ywAh8&_nc_ht=scontent-iad3-2.xx&edm=AJdBtusEAAAA&oh=00_AfDz_dvAC_7_-Tzn4bgdP43hP57MkB0umegJBzapIr520g&oe=658650A9
+description: Foot Ball Club Piérola es un club de fútbol del Perú, de la ciudad de
+  Arequipa en el Departamento de Arequipa. Fue fundado el 7 de mayo de 1922 y participa
+  en la Copa Perú.
+domain: fbcpierola.github
+email: info@fbcpierola.com
 exclude:
-  - CNAME
-  - Gemfile
-  - Gemfile.lock
-  - node_modules/
-  - vendor/
-  - package.json
-  - package-lock.json
-  - webpack.config.js
-  - styles
-  - scripts
+- CNAME
+- Gemfile
+- Gemfile.lock
+- node_modules/
+- vendor/
+- package.json
+- package-lock.json
+- webpack.config.js
+- styles
+- scripts
+linklists:
+- title: EL CLUB
+  url: /club
+plugins:
+- jekyll-feed
+social_networks:
+- name: youtube
+  public_url: https://www.youtube.com/@fbcpierola
+- name: instagram
+  public_url: https://www.instagram.com/fbcpierola
+- name: facebook
+  public_url: https://www.facebook.com/fbcpierola
+- name: tiktok
+  public_url: https://www.tiktok.com/@fbcpierola
+theme: null
+title: FBC Piérola
+url: https://fbcpierola.com
